@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.github.dddpaul.camunda'
+version = '0.1.0-SNAPSHOT'
+description = 'Camunda Connector Template'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    maven {
+        url 'https://artifacts.camunda.com/artifactory/connectors/'
+    }
+    maven {
+        url 'https://artifacts.camunda.com/artifactory/connectors-snapshots/'
+    }
+    mavenCentral()
+}
+
+// Define properties for versions.
+ext {
+    versions = [
+            connectors: '8.3.1',
+            assertj: '3.24.2',
+            junitJupiter: '5.10.1',
+            mockito: '5.7.0',
+            slf4j: '2.0.9'
+    ]
+}
+
+dependencies {
+    // Camunda connector dependencies
+    compileOnly "io.camunda.connector:connector-core:${versions.connectors}"
+    compileOnly "io.camunda.connector:connector-validation:${versions.connectors}"
+
+    // SLF4J API
+    implementation "org.slf4j:slf4j-api:${versions.slf4j}"
+
+    // Element template generator annotations (compile-time only)
+    compileOnly "io.camunda.connector:element-template-generator-core:${versions.connectors}"
+
+    // Test dependencies
+    testImplementation "io.camunda.connector:connector-test:${versions.connectors}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${versions.junitJupiter}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${versions.mockito}"
+    testImplementation "org.assertj:assertj-core:${versions.assertj}"
+    testImplementation "org.slf4j:slf4j-jdk14:${versions.slf4j}"
+
+    // For testing connectors locally in bundle with runtime
+    testImplementation("io.camunda.connector:spring-boot-starter-camunda-connectors:${versions.connectors}") {
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Define configurations for the plugins
+configurations {
+    shade
+}
+
+// Apply the shadow plugin to create a fat/uber JAR
+shadowJar {
+    archiveClassifier.set('with-dependencies')
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer)
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformer)
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformer)
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ManifestResourceTransformer)
+    // Uncomment and adjust to use relocations inside your JAR
+    //relocate 'com.fasterxml.jackson', 'myconnector.com.fasterxml.jackson'
+}
