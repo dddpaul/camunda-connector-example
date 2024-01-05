@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
@@ -67,7 +66,6 @@ configurations {
 
 // Apply the shadow plugin to create a fat/uber JAR
 shadowJar {
-    archiveClassifier.set('with-dependencies')
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformer)
