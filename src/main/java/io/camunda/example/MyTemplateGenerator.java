@@ -1,6 +1,5 @@
 package io.camunda.example;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.camunda.connector.generator.dsl.OutboundElementTemplate;
 import io.camunda.connector.generator.java.OutboundClassBasedTemplateGenerator;
