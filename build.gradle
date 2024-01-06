@@ -67,6 +67,12 @@ configurations {
 
 // Apply the shadow plugin to create a fat/uber JAR
 shadowJar {
+    dependencies {
+        exclude(dependency("io.camunda.connector::"))
+        exclude(dependency("com.fasterxml.jackson.*::"))
+        exclude(dependency("org.apache.commons.*::"))
+        exclude(dependency("jakarta.validation::"))
+    }
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformer)
