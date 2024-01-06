@@ -74,6 +74,8 @@ shadowJar {
         exclude(dependency("jakarta.validation::"))
         exclude(dependency("jakarta.validation::"))
     }
+    exclude("com/github/dddpaul/camunda/connectorexample/generator/**")
+    exclude("icon.svg")
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformer)
     transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformer)

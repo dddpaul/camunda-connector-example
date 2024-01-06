@@ -1,6 +1,7 @@
-package com.github.dddpaul.camunda.connectorexample;
+package com.github.dddpaul.camunda.connectorexample.generator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.dddpaul.camunda.connectorexample.MyConnectorFunction;
 import io.camunda.connector.generator.dsl.OutboundElementTemplate;
 import io.camunda.connector.generator.java.OutboundClassBasedTemplateGenerator;
 
