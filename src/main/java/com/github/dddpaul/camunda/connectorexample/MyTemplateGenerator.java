@@ -1,4 +1,4 @@
-package io.camunda.example;
+package com.github.dddpaul.camunda.connectorexample;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.camunda.connector.generator.dsl.OutboundElementTemplate;

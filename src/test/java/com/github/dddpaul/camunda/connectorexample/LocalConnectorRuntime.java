@@ -1,4 +1,4 @@
-package io.camunda.example;
+package com.github.dddpaul.camunda.connectorexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package io.camunda.example;
+package com.github.dddpaul.camunda.connectorexample;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -6,9 +6,9 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.camunda.connector.api.error.ConnectorException;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
-import io.camunda.example.dto.Authentication;
-import io.camunda.example.dto.MyConnectorRequest;
-import io.camunda.example.dto.MyConnectorResult;
+import com.github.dddpaul.camunda.connectorexample.dto.Authentication;
+import com.github.dddpaul.camunda.connectorexample.dto.MyConnectorRequest;
+import com.github.dddpaul.camunda.connectorexample.dto.MyConnectorResult;
 import org.junit.jupiter.api.Test;
 
 public class MyFunctionTest {
