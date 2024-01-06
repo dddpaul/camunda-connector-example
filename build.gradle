@@ -24,7 +24,7 @@ repositories {
 // Define properties for versions.
 ext {
     versions = [
-            connectors: '8.3.1',
+            connectors: '8.3.3',
             assertj: '3.24.2',
             junitJupiter: '5.10.1',
             mockito: '5.7.0',
@@ -37,11 +37,11 @@ dependencies {
     compileOnly "io.camunda.connector:connector-core:${versions.connectors}"
     compileOnly "io.camunda.connector:connector-validation:${versions.connectors}"
 
+    // Element template generator
+    implementation "io.camunda.connector:element-template-generator-core:${versions.connectors}"
+
     // SLF4J API
     implementation "org.slf4j:slf4j-api:${versions.slf4j}"
-
-    // Element template generator annotations (compile-time only)
-    compileOnly "io.camunda.connector:element-template-generator-core:${versions.connectors}"
 
     // Test dependencies
     testImplementation "io.camunda.connector:connector-test:${versions.connectors}"
