@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.dddpaul.camunda'
-version = '0.1.1-SNAPSHOT'
+version = '0.1.2-SNAPSHOT'
 description = 'Camunda Connector Template'
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -73,6 +73,7 @@ shadowJar {
         exclude(dependency("org.apache.commons.*::"))
         exclude(dependency("jakarta.validation::"))
         exclude(dependency("jakarta.validation::"))
+        exclude(dependency("org.slf4j::"))
     }
     exclude("com/github/dddpaul/camunda/connectorexample/generator/**")
     exclude("icon.svg")
