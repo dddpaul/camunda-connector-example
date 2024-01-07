@@ -76,10 +76,6 @@ shadowJar {
     }
     exclude("com/github/dddpaul/camunda/connectorexample/generator/**")
     exclude("icon.svg")
-    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer)
-    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformer)
-    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformer)
-    transform(com.github.jengelman.gradle.plugins.shadow.transformers.ManifestResourceTransformer)
     // Uncomment and adjust to use relocations inside your JAR
     //relocate 'com.fasterxml.jackson', 'myconnector.com.fasterxml.jackson'
 }
